@@ -119,7 +119,7 @@ OAuth.registerService('cognito', 2, null, function (query) {
  */
 const getTokens = function (config, query) {
 
-  const endpoint = 'https://farmmart.auth.us-east-2.amazoncognito.com/oauth2/token';
+  const endpoint = 'https://' + config.domainUrl + '/oauth2/token';
 
   /**
    * Attempt the exchange of code for token
@@ -136,7 +136,7 @@ const getTokens = function (config, query) {
         client_id: config.clientId,
         client_secret: OAuth.openSecret(config.secret),
         grant_type: 'authorization_code',
-        redirect_uri: 'https://67123039.ngrok.io/_oauth/cognito'
+        redirect_uri: 'https://' + config.redirectUri + '/_oauth/cognito'
       }
     });
 
